@@ -1,25 +1,28 @@
 module.exports = {
-	'env': {
-		'browser': true,
-		'commonjs': true,
-		'es6': true,
-		'node': true
-	},
-	'extends': [
+    'env': [
+      'eslint:recommended',
+      'plugin:vue/essential'
+    ],
+
+    'extends': [
 		'eslint:recommended',
 		'plugin:vue/essential'
 	],
-	'globals': {
+
+    'globals': {
 		'Atomics': 'readonly',
 		'SharedArrayBuffer': 'readonly'
 	},
-	'parserOptions': {
+
+    'parserOptions': {
 		'ecmaVersion': 2018
 	},
-	'plugins': [
+
+    'plugins': [
 		'vue'
 	],
-	'rules': {
+
+    'rules': {
 		'indent': [
 			'error',
 			'tab'
@@ -36,5 +39,40 @@ module.exports = {
 			'error',
 			'always'
 		]
-	}
+	},
+
+    root: true,
+
+    env: {
+      browser: true,
+      commonjs: true,
+      es6: true,
+      node: true
+    },
+
+    rules: {
+      indent: [
+        'error',
+        'tab'
+      ],
+      'linebreak-style': [
+        'error',
+        'unix'
+      ],
+      quotes: [
+        'error',
+        'single'
+      ],
+      semi: [
+        'error',
+        'always'
+      ],
+      'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+      'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    },
+
+    parserOptions: {
+      ecmaVersion: 2018,
+      parser: 'babel-eslint'
+    }
 };
