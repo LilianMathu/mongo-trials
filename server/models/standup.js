@@ -1,5 +1,6 @@
 const mongoose = require ('mongoose');
 
+//create a schema
 const standupSchema = new mongoose.Schema({
     teamMember: { type: String },
     project: { type: String },
@@ -8,3 +9,8 @@ const standupSchema = new mongoose.Schema({
     impediment: { type: String },
     createdOn: { type: Date, default: Date.now }
 });
+
+//create a model
+module.exports = mongoose.model('Standup', standupSchema);
+
+
