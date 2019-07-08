@@ -2,11 +2,11 @@ const express = require('express');
 const morgan = require('morgan');   //logger
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const api = require('../../server/api');   //api routes 
+const api = require('./api');   //api routes 
 
 const app = express();   //create an instance of the express app
 
-app.set('port', (process.env.PORT || 8081));
+let port = process.env.PORT || 8081;
  
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,10 +31,11 @@ mongoose.connect('mongodb://localhost:27017/virtualstandups', { useNewUrlParser:
 const db = mongoose.connection;
 
 //check for connection errors
-db.on('error', console.error.bind(console, 'connection error:'));
+db.on('error', console.error.bind(console, 'connection error:'));  
+
 db.once('open', function () {
 	console.log('connected to mongoDB');
-	app.listen(app.get('port', () => {
-	   console.log('API server listening on port ' + app.get('port') + '!');
-	}));
+	app.listen(port, () => {
+	   console.log('API server listening on port ', port);
+	});
 });

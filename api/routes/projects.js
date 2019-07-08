@@ -1,4 +1,4 @@
-
+const Project = require('../../server/models/project');
 
 
 module.exports = function (router) {
@@ -14,7 +14,7 @@ module.exports = function (router) {
 			if(err) {
 				return res.status(400).json(err);
 			}
-			res.status(400).json(project);
+			res.status(200).json(project);
 		}
 	});
 };

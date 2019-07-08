@@ -11,6 +11,7 @@ const standupSchema = new mongoose.Schema({
 });
 
 //create a model
+//const myModel = mongoose.model('myModel', mySchema);
 module.exports = mongoose.model('Standup', standupSchema);
 
 

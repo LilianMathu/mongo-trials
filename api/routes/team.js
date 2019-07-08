@@ -1,9 +1,10 @@
+const TeamMember = require('../../server/models/teamMember');
 
 
 
 module.exports = function (router) {
 	//GET: the twelve newest standup notes
-	router.get('/standup', function (req, res) {
+	router.get('/team', function (req, res) {
 		
 	});
 

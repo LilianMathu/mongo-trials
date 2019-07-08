@@ -1,4 +1,4 @@
-const Standup = require ('../../models/standup');
+const Standup = require ('../../server/models/standup');
 
 
 module.exports = function (router) {
@@ -8,7 +8,7 @@ module.exports = function (router) {
 	});
 
 	//POST: get new meeting note document
-	router.post('standup', function (req, res){
+	router.post('/standup', function (req, res){
 		//bring in the mongoose model
 		//Standup is the name of the model
 		//note is the mongoose document instance of the standup model
